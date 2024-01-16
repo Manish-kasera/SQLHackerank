@@ -11,6 +11,40 @@ order by length(CITY) asc,CITY asc limit 1;
 
 
 https://www.hackerrank.com/challenges/weather-observation-station-6/problem?isFullScreen=true
+-- left() ,right()
 
 select CITY from STATION
 where left(CITY,1) in ('a','e','i','o','u');
+
+
+https://www.hackerrank.com/challenges/more-than-75-marks/problem?isFullScreen=true
+- substr()
+
+select Name from Students
+where Marks > 75
+order by right(Name,3) asc,Id asc;
+
+select name from students where marks>75 
+order by substr(name,length(name)-2),id asc;
+
+
+https://www.hackerrank.com/challenges/the-report/problem?isFullScreen=true   
+-> MUST CHECKOUT
+
+
+select IF(Grade < 8 ,NULL,Name),Grade, Marks from Students as S
+Join Grades as G
+where S.marks between G.Min_Mark and G.Max_Mark
+order by Grade desc, Name asc;
+
+select 
+  Case 
+   when G.Grade >= 8 Then S.Name
+   else NULL
+   end as Name,
+   G.Grade,
+   S.Marks 
+from Students as S 
+Join Grades as G
+where S.Marks between G.Min_Mark and G.Max_Mark
+order by G.Grade desc , S.Name asc,S.Marks;
