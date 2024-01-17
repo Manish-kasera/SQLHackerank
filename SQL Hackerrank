@@ -48,3 +48,11 @@ from Students as S
 Join Grades as G
 where S.Marks between G.Min_Mark and G.Max_Mark
 order by G.Grade desc , S.Name asc,S.Marks;
+
+
+https://www.hackerrank.com/challenges/the-blunder/problem?isFullScreen=true
+
+REPLACE() : used to remove 0 from salary.
+
+select ceil(avg(salary) - avg(replace(salary,"0",""))) from Employees;
+
